@@ -20,10 +20,10 @@ import java.util.regex.Matcher;
  * @author ramswaroop
  * @version 1.0.0, 05/06/2016
  */
-@Component
+//@Component
 public class SlackBot extends Bot {
 
-    private static final Logger logger = LoggerFactory.getLogger(SlackBot.class);
+    private static final Logger log = LoggerFactory.getLogger(SlackBot.class);
 
     /**
      * Slack token from application.properties file. You can get your slack token
@@ -41,7 +41,10 @@ public class SlackBot extends Bot {
     public Bot getSlackBot() {
         return this;
     }
-
+    
+    
+    
+ 
     /**
      * Invoked when the bot receives an event of type direct mention
      * or direct message. NOTE: These two event types are added by botkit
@@ -53,7 +56,7 @@ public class SlackBot extends Bot {
      */
     @Controller(events = {EventType.DIRECT_MENTION, EventType.DIRECT_MESSAGE})
     public void onReceiveDM(WebSocketSession session, Event event) {
-        reply(session, event, new Message("Hi, I am " + currentUser.getName()));
+        reply(session, event, new Message("Hi, I am " + currentUser.getName() + ", yeap, the fat one from Lost"));
     }
 
     /**
